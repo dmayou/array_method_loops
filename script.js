@@ -73,7 +73,24 @@ function removeOneElement(startIndex) {
 // Array.splice() (limited implementation--removes numRemove elements beginning
 //                 at startIndex)
 function removeNElements(startIndex, numRemove) {
-
+  let newArr = [];
+  let removedElements = [];
+  if (startIndex < 0 || startIndex >= arr.length || numRemove < 1) {
+    return []; // return empty array because of invalid parameter
+  }
+  for (let i=0,j=0; i<arr.length; i++) {
+    if (i !== startIndex) {
+      newArr[j] = arr[i];
+      j++;
+    } else {
+      for (; i-j < numRemove; i++) {
+        removedElements[i-j] = arr[i];
+      }
+      i--; // above loop increments one more time than needed, so decrement at end
+    }
+  }
+  arr = newArr;
+  return removedElements;
 }
 
 // Array.push()
