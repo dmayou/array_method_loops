@@ -118,11 +118,23 @@ function popWithLoops() {
 }
 
 // Array.shift()
-function shiftWithLoops(ele) {
-
+function shiftWithLoops() {
+  let newArr = [];
+  let shiftedEle = arr[0];
+  for (let i=1; i<arr.length; i++) {
+    newArr[i-1] = arr[i];
+  }
+  arr = newArr;
+  return shiftedEle;
 }
 
 // Array.unshift()
-function unshiftWithLoops() {
-
+function unshiftWithLoops(ele) {
+  let newArr = [];
+  newArr[0] = ele;
+  for (let i=0; i<arr.length; i++) {
+    newArr[i+1] = arr[i];
+  }
+  arr = newArr;
+  return arr.length;
 }
