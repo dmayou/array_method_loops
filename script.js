@@ -47,34 +47,51 @@ function indexOfWithLoops(arr, ele) {
   return index;
 }
 
+// The following functions will modify the array. To keep things simple, I'm
+// going to require that the array be named arr.
+
 // Array.splice() (limited implementation--removes numRemove elements beginning
 //                 at startIndex)
-function removeOneElement(arr, startIndex) {
-
+function removeOneElement(startIndex) {
+  let newArr = [];
+  let removedElement = null;
+  if (startIndex < 0 || startIndex >= arr.length) {
+    return []; // return empty array because startIndex invalid
+  }
+  for (let i=0,j=0; i<arr.length; i++) {
+    if (i !== startIndex) {
+      newArr[j] = arr[i];
+      j++;
+    } else {
+      removedElement = arr[i];
+    }
+  }
+  arr = newArr;
+  return removedElement;
 }
 
 // Array.splice() (limited implementation--removes numRemove elements beginning
 //                 at startIndex)
-function removeNElements(arr, startIndex, numRemove) {
+function removeNElements(startIndex, numRemove) {
 
 }
 
 // Array.push()
-function pushWithLoops(arr, ele) {
+function pushWithLoops(ele) {
 
 }
 
 // Array.pop()
-function popWithLoops(arr) {
+function popWithLoops() {
 
 }
 
 // Array.shift()
-function shiftWithLoops(arr, ele) {
+function shiftWithLoops(ele) {
 
 }
 
 // Array.unshift()
-function unshiftWithLoops(arr) {
+function unshiftWithLoops() {
 
 }
