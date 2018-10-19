@@ -6,6 +6,8 @@
 // I also haven't ensured that the return values exactly match what is in the
 // MDN documentation.
 
+// I have not exhaustively tested these, perhaps only trying them once or twice.
+
 // I have no idea how the actual methods are implemented.
 
 // There's probably a way to make these methods rather than functions, and
@@ -95,12 +97,24 @@ function removeNElements(startIndex, numRemove) {
 
 // Array.push()
 function pushWithLoops(ele) {
-
+  let newArr = [];
+  for (let i=0; i<arr.length; i++) {
+    newArr[i] = arr[i];
+  }
+  newArr[arr.length] = ele;
+  arr = newArr;
+  return arr.length;
 }
 
 // Array.pop()
 function popWithLoops() {
-
+  let newArr = [];
+  for (let i=0; i<arr.length-1; i++) {
+    newArr[i] = arr[i];
+  }
+  let poppedEle = arr[arr.length-1];
+  arr = newArr;
+  return poppedEle;
 }
 
 // Array.shift()
